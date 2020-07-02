@@ -1,7 +1,7 @@
 {
   "private": true,
   "workspaces": [
-    "example",
-    "lib"
+    "packages/example",
+    "packages/next-client-script"
   ]
 }
