@@ -1,5 +1,5 @@
 import Document, {Html, Head, Main, NextScript} from 'next/document';
-import ClientScript from 'framework/ClientScript';
+import ClientScript from '../../../dist/ClientScript';
 
 export default class CustomDocument extends Document {
   render() {

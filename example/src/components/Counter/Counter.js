@@ -1,4 +1,4 @@
-import ClientWidget from 'framework/ClientWidget';
+import ClientWidget from '../../../../dist/ClientWidget';
 import styles from './Counter.module.css';
 
 console.log('Counter server code ran');

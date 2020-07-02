@@ -1,9 +1,10 @@
 import Head from 'next/head';
+import Image from 'components/Image';
 import Counter from '../components/Counter';
-import styles from './test.module.css';
+import styles from './index.module.css';
 
 export const config = {
-  unstable_runtimeJS: false,
+  unstable_runtimeJS: false
 };
 
 export default function Home() {
@@ -15,7 +16,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>Test page</h1>
+        <h1 className={styles.title}>
+          <span>Next.js on steroids</span>
+          <Image />
+        </h1>
         <Counter />
       </main>
     </div>

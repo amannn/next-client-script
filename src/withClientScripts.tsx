@@ -121,7 +121,7 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
           const compiler: Compiler = nextWebpack(clientConfig);
           compiler.run((err, stats) => {
             if (err) throw err;
-            console.log('built client');
+            console.log('built client', stats.endTime);
           });
 
           return config;

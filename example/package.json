@@ -8,9 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "../node_modules/next",
-    "react": "../node_modules/react",
-    "react-dom": "../node_modules/react-dom"
+    "next": "9.4.4",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "devDependencies": {
     "next-images": "1.4.0"

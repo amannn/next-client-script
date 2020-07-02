@@ -17,9 +17,9 @@ jobs:
       - run: yarn install --frozen-lockfile
         env:
           CI: true
-      - run: yarn lint
+      - run: yarn build
         env:
           CI: true
-      - run: yarn build
+      - run: yarn lint
         env:
           CI: true
