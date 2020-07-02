@@ -13,9 +13,8 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
     // we need to make sure that this package gets transpiled. Probably it would
     // also be possible to configure the loaders/plugin directly here without
     // using this dependency.
-    receivedConfig = withTM(['next-client-script'])(receivedConfig);
-
-    return Object.assign({}, receivedConfig, {
+    return withTM(['next-client-script'])({
+      ...receivedConfig,
       webpack(
         config: webpack.Configuration,
         options: {

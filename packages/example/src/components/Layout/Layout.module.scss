@@ -7,15 +7,16 @@
 .nav {
   padding: 20px 30px;
   background-color: #f0f0f0;
+  border-radius: 8px;
 }
 
 .link {
   color: inherit;
   text-decoration: none;
-}
 
-.link + .link {
-  margin-left: 20px;
+  & + & {
+    margin-left: 20px;
+  }
 }
 
 .children {

@@ -7,10 +7,8 @@ const nextConfig = {
   pageExtensions: ['page.tsx']
 };
 
-module.exports = withTM(
-  withImages(
-    withClientScripts({
-      '/': './src/pages/index.client.tsx'
-    })(nextConfig)
-  )
+module.exports = withImages(
+  withClientScripts({
+    '/': './src/pages/index.client.tsx'
+  })(nextConfig)
 );
