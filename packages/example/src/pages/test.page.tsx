@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Layout from 'components/Layout';
 import Counter from '../components/Counter';
 import styles from './test.module.css';
 
@@ -8,7 +9,7 @@ export const config = {
 
 export default function Home() {
   return (
-    <div className={styles.root}>
+    <Layout>
       <Head>
         <title>Create Next App</title>
         <link href="/favicon.ico" rel="icon" />
@@ -18,6 +19,6 @@ export default function Home() {
         <h1>Test page</h1>
         <Counter />
       </main>
-    </div>
+    </Layout>
   );
 }
