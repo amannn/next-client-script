@@ -13,3 +13,15 @@ Widget usage:
 
 1. Add a client widget and use `ClientWidget`.
 2. Use `initClientWidgets` and pass in the widget
+
+benefits
+ - serializing state is opt-in
+ - client side runtime for components is opt-in
+
+ tradeoff
+ - no client-side css-in-js (e.g. css modules is totally fine)
+
+inspiration
+ - netflix case study
+ - addy osmani
+ - https://github.com/postcss/postcss.org/pull/256
