@@ -67,15 +67,6 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
           return config;
         }
 
-        // https://github.com/vercel/next.js/issues/7755#issuecomment-508633125
-        config = {
-          ...config,
-          node: {
-            fs: 'empty',
-            path: 'empty'
-          }
-        };
-
         if (dev) {
           const originalEntry = config.entry as Function;
           config.entry = () =>
