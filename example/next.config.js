@@ -4,13 +4,13 @@ const withTM = require('next-transpile-modules')(['next-client-script']);
 const withClientScripts = require('next-client-script/dist/withClientScripts');
 
 const nextConfig = {
-  pageExtensions: ['page.js']
+  pageExtensions: ['page.tsx']
 };
 
 module.exports = withTM(
   withImages(
     withClientScripts({
-      '/': './src/pages/index.client.js'
+      '/': './src/pages/index.client.tsx'
     })(nextConfig)
   )
 );

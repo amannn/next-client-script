@@ -121,9 +121,13 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
           const compiler: Compiler = nextWebpack(clientConfig);
           compiler.run((error, stats) => {
             let errorMessage;
-            if (error) errorMessage = error.message;
+            if (error) {
+              errorMessage = error.message;
+            }
             if (stats.compilation.errors.length > 0) {
-              errorMessage = stats.compilation.errors.join('\n\n');
+              errorMessage = stats.compilation.errors
+                .map((error) => JSON.stringify(error))
+                .join('\n\n');
             }
             if (errorMessage) {
               console.error(errorMessage);

@@ -29,6 +29,7 @@
     "react": "^16.13.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "13.0.0",
     "@rollup/plugin-typescript": "5.0.1",
     "@types/mini-css-extract-plugin": "0.9.1",
     "@types/next": "9.0.0",
