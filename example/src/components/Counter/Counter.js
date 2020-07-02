@@ -1,4 +1,4 @@
-import ClientWidget from '../../../../dist/ClientWidget';
+import ClientWidget from 'next-client-script/dist/ClientWidget';
 import styles from './Counter.module.css';
 
 console.log('Counter server code ran');

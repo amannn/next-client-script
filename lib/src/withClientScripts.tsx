@@ -2,12 +2,19 @@ import fs from 'fs';
 import path from 'path';
 import webpack, {Compiler} from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import withTM from 'next-transpile-modules';
 import ClientScriptsByPath from './ClientScriptsByPath';
 
 module.exports = function withHydrationInitializer(scriptsByPath: {
   [path: string]: string;
 }) {
   return function withHydration(receivedConfig: webpack.Configuration = {}) {
+    // Since we use the `DefinePlugin` to inject the config into `ClientScript`,
+    // we need to make sure that this package gets transpiled. Probably it would
+    // also be possible to configure the loaders/plugin directly here without
+    // using this dependency.
+    receivedConfig = withTM(['next-client-script'])(receivedConfig);
+
     return Object.assign({}, receivedConfig, {
       webpack(
         config: webpack.Configuration,
@@ -45,11 +52,13 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
           clientEntries[entryPointName] = scriptPath;
         });
 
+        const CLIENT_SCRIPTS_BY_PATH = JSON.stringify(clientScriptsByPath);
+
         config = {
           ...config,
-          plugins: (config.plugins || []).concat(
+          plugins: config.plugins?.concat(
             new nextWebpack.DefinePlugin({
-              CLIENT_SCRIPTS_BY_PATH: JSON.stringify(clientScriptsByPath)
+              CLIENT_SCRIPTS_BY_PATH
             })
           )
         };
@@ -119,9 +128,16 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
           };
 
           const compiler: Compiler = nextWebpack(clientConfig);
-          compiler.run((err, stats) => {
-            if (err) throw err;
-            console.log('built client', stats.endTime);
+          compiler.run((error, stats) => {
+            let errorMessage;
+            if (error) errorMessage = error.message;
+            if (stats.compilation.errors.length > 0) {
+              errorMessage = stats.compilation.errors.join('\n\n');
+            }
+            if (errorMessage) {
+              console.error(errorMessage);
+              process.exit(1);
+            }
           });
 
           return config;
