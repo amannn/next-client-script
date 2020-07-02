@@ -15,7 +15,6 @@
   },
   "devDependencies": {
     "next-images": "1.4.0",
-    "next-transpile-modules": "3.3.0",
     "sass": "1.26.9"
   }
 }
