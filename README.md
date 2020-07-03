@@ -21,7 +21,7 @@ This is a Next.js plugin that is intended to be used in conjunction with disable
 - A client side runtime for components is opt-in
 - Serializing data for the client is opt-in
 
-The tradeoff is that you can't use any client-side features of React (state, effects, event handlers, …).
+The tradeoff is that you can't use any client-side features of React (state, effects, event handlers, …). Note that since this is an external plugin, some features of Next.js might not be available (yet) – e.g. code splitting.
 
 ## Getting started
 
