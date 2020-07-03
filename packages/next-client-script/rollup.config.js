@@ -18,6 +18,7 @@ export default {
   external: [
     'fs',
     'path',
+    'chalk',
     'mini-css-extract-plugin',
     'react',
     'next/dist/next-server/lib/document-context',

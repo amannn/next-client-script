@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 import fs from 'fs';
 import path from 'path';
+import chalk from 'chalk';
 import webpack, {Compiler} from 'webpack';
 // Make sure we use the transitive dependency from
 // Next.js, otherwise there can be build errors.
@@ -7,6 +9,13 @@ import webpack, {Compiler} from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import withTM from 'next-transpile-modules';
 import ClientScriptsByPath from './ClientScriptsByPath';
+
+const NEXT_PATH = '/_next';
+const PUBLIC_BASE_PATH = '/static/client/';
+
+function encodePath(scriptPath: string) {
+  return scriptPath.replace(/\W/g, '-').replace(/-(js|jsx|ts|tsx)$/, '');
+}
 
 module.exports = function withHydrationInitializer(scriptsByPath: {
   [path: string]: string;
@@ -33,34 +42,23 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
           [path: string]: string;
         } = {};
         const clientScriptsByPath: ClientScriptsByPath = {};
-
-        function encodePath(scriptPath: string) {
-          return scriptPath
-            .replace(/\W/g, '-')
-            .replace(/-(js|jsx|ts|tsx)$/, '');
-        }
-
         Object.entries(scriptsByPath).forEach(([pagePath, scriptPath]) => {
-          const publicBasePath = '/static/client/';
-
-          let publicPath = publicBasePath + encodePath(scriptPath);
+          let publicPath = PUBLIC_BASE_PATH + encodePath(scriptPath);
           if (!dev) publicPath += `-${buildId}`;
           else publicPath += '.js';
 
-          clientScriptsByPath[pagePath] = '/_next' + publicPath;
+          clientScriptsByPath[pagePath] = NEXT_PATH + publicPath;
           if (!dev) clientScriptsByPath[pagePath] += '.js';
 
           const entryPointName = publicPath.substring(1);
           clientEntries[entryPointName] = scriptPath;
         });
 
-        const CLIENT_SCRIPTS_BY_PATH = JSON.stringify(clientScriptsByPath);
-
         config = {
           ...config,
           plugins: config.plugins?.concat(
             new nextWebpack.DefinePlugin({
-              CLIENT_SCRIPTS_BY_PATH
+              CLIENT_SCRIPTS_BY_PATH: JSON.stringify(clientScriptsByPath)
             })
           )
         };
@@ -151,6 +149,12 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
               console.error(errorMessage);
               process.exit(1);
             }
+
+            console.log(chalk.green('\nCreated client scripts'));
+            Object.entries(scriptsByPath).forEach(([path, script]) => {
+              console.log(`${path}: ${script}`);
+            });
+            console.log('\n');
           });
 
           return config;

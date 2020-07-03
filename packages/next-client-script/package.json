@@ -22,6 +22,7 @@
     "prepublishOnly": "yarn lint && yarn build && cp dist/* . && cp ../../README.md ."
   },
   "dependencies": {
+    "chalk": "^4.0.0",
     "next-transpile-modules": "^3.0.0",
     "webpack": "^4.0.0"
   },
