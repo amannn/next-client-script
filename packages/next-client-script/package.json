@@ -5,16 +5,11 @@
   "repository": "https://github.com/amannn/next-client-script",
   "author": "Jan Amann <jan@amann.me>",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/next-client-script.esm.js",
-  "typings": "dist/index.d.ts",
   "files": [
     "ClientScript.*",
     "ClientScriptsByPath.*",
     "ClientWidget.*",
     "initWidgets.*",
-    "package.json",
-    "README.md",
     "withClientScripts.*"
   ],
   "engines": {
