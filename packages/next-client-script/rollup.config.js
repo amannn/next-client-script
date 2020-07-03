@@ -16,7 +16,6 @@ export default {
   },
   plugins: [typescript(), commonjs()],
   external: [
-    'fs',
     'path',
     'chalk',
     'mini-css-extract-plugin',

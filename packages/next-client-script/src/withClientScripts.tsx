@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 import webpack, {Compiler} from 'webpack';
@@ -7,9 +5,7 @@ import withTM from 'next-transpile-modules';
 import ClientScriptsByPath from './ClientScriptsByPath';
 
 const NEXT_PATH = '/_next';
-const PUBLIC_BASE_PATH = '/static/client/';
 const NEXT_BUILD_PATH = './.next/';
-const NEXT_BUILD_ID_PATH = NEXT_BUILD_PATH + 'BUILD_ID';
 
 function encodePath(scriptPath: string) {
   return scriptPath.replace(/\W/g, '-').replace(/-(js|jsx|ts|tsx)$/, '');
@@ -36,14 +32,16 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
       ) {
         const {buildId, dev, isServer, webpack: nextWebpack} = options;
 
+        // By using this folder, we get immutable caching headers
+        const PUBLIC_BASE_PATH = `/static/${buildId}/client/`;
+
         const clientEntries: {
           [path: string]: string;
         } = {};
         const clientScriptsByPath: ClientScriptsByPath = {};
         Object.entries(scriptsByPath).forEach(([pagePath, scriptPath]) => {
           let publicPath = PUBLIC_BASE_PATH + encodePath(scriptPath);
-          if (!dev) publicPath += `-${buildId}`;
-          else publicPath += '.js';
+          if (dev) publicPath += '.js';
 
           clientScriptsByPath[pagePath] = NEXT_PATH + publicPath;
           if (!dev) clientScriptsByPath[pagePath] += '.js';
@@ -77,9 +75,6 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
           // For the production build, we have to trigger a separate build where
           // only the client entries are compiled. A child compiler didn't work
           // during initial tests, as nothing was written to the file system.
-
-          const buildIdPath = path.resolve(process.cwd(), NEXT_BUILD_ID_PATH);
-          fs.writeFileSync(buildIdPath, buildId);
 
           const clientConfig = {
             ...config,
@@ -134,11 +129,13 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
               process.exit(1);
             }
 
+            /* eslint-disable no-console */
             console.log(chalk.green('\nCreated client scripts'));
             Object.entries(scriptsByPath).forEach(([path, script]) => {
               console.log(`${path}: ${script}`);
             });
             console.log('\n');
+            /* eslint-enable no-console */
           });
         }
 
