@@ -1,18 +1,18 @@
 import React, {ReactNode} from 'react';
 
-type Props = {
+type Props<T> = {
   className?: string;
-  props: any;
+  data?: T;
   children: ReactNode;
 };
 
-export default function ClientWidget({children, className, props}: Props) {
+export default function ClientWidget<T>({children, className, data}: Props<T>) {
   return (
     <div className={className}>
-      {props && (
+      {data && (
         <script
-          dangerouslySetInnerHTML={{__html: JSON.stringify(props)}}
-          data-widget-props
+          dangerouslySetInnerHTML={{__html: JSON.stringify(data)}}
+          data-widget-data
           type="application/json"
         />
       )}

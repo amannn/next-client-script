@@ -1,5 +1,5 @@
 interface Widget {
-  (node: HTMLElement, props?: any): void;
+  (node: HTMLElement, data?: any): void;
   selector: string;
 }
 
@@ -12,24 +12,24 @@ export default function initWidgets(widgets: Widget[]) {
         const node = nodes[index];
 
         if (node instanceof HTMLElement) {
-          let props: any;
+          let data: any;
           if (node.children) {
-            const propsChild = Array.from(node.children).find(
+            const dataChild = Array.from(node.children).find(
               (child) =>
                 child instanceof HTMLElement &&
-                child.dataset.widgetProps === 'true'
+                child.dataset.widgetData === 'true'
             );
 
-            if (propsChild?.textContent) {
+            if (dataChild?.textContent) {
               try {
-                props = JSON.parse(propsChild.textContent);
+                data = JSON.parse(dataChild.textContent);
               } catch (error) {
-                console.error('Props unparseable: ' + propsChild.textContent);
+                console.error('Data unparseable: ' + dataChild.textContent);
               }
             }
           }
 
-          widget(node, props);
+          widget(node, data);
         }
       }
     });

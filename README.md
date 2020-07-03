@@ -82,7 +82,7 @@ import styles from './Counter.module.scss';
 
 export default function Counter({initialCount = 2}) {
   return (
-    <ClientWidget className={styles.root} props={{initialCount}}>
+    <ClientWidget className={styles.root} data={{initialCount}}>
       <p className={styles.label}>
         Count: <span className={styles.count}>{initialCount}</span>
       </p>
@@ -96,8 +96,8 @@ Now you can add a client bundle sibling to this component that receives the data
 
 ```js
 // Counter.client.js
-export default function initCounter(rootNode, props) {
-  let count = props.initialCount;
+export default function initCounter(rootNode, data) {
+  let count = data.initialCount;
 
   const countNode = rootNode.querySelector(`.${styles.count}`);
   const buttonNode = rootNode.querySelector(`.${styles.button}`);
