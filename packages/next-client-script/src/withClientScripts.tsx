@@ -1,6 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import webpack, {Compiler} from 'webpack';
+// Make sure we use the transitive dependency from
+// Next.js, otherwise there can be build errors.
+// eslint-disable-next-line import/no-extraneous-dependencies
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import withTM from 'next-transpile-modules';
 import ClientScriptsByPath from './ClientScriptsByPath';
