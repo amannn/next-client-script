@@ -3,10 +3,6 @@ import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 import webpack, {Compiler} from 'webpack';
-// Make sure we use the transitive dependency from
-// Next.js, otherwise there can be build errors.
-// eslint-disable-next-line import/no-extraneous-dependencies
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import withTM from 'next-transpile-modules';
 import ClientScriptsByPath from './ClientScriptsByPath';
 
@@ -97,23 +93,14 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
               // contains all necessary client code.
               runtimeChunk: undefined
             },
-            plugins: (config.plugins || [])
-              .filter(
-                (plugin: any) =>
-                  ![
-                    // The manifest from the regular build should be used
-                    'ReactLoadablePlugin',
-                    'BuildManifestPlugin',
-
-                    // Creates unnecessary sub folders
-                    'NextMiniCssExtractPlugin'
-                  ].includes(plugin.constructor.name)
-              )
-              .concat(
-                // Ideally we'd ignore the CSS assets, but if we don't use
-                // this plugin, the JS assets won't get emitted as well.
-                new MiniCssExtractPlugin()
-              )
+            plugins: (config.plugins || []).filter(
+              (plugin: any) =>
+                ![
+                  // The manifest from the regular build should be used
+                  'ReactLoadablePlugin',
+                  'BuildManifestPlugin'
+                ].includes(plugin.constructor.name)
+            )
           };
 
           const compiler: Compiler = nextWebpack(clientConfig);
