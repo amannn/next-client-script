@@ -9,6 +9,6 @@ const nextConfig = {
 module.exports = withImages(
   withClientScripts({
     '/': './src/pages/index.client.tsx',
-    '/nested/page': './src/pages/index.client.tsx'
+    '/tests/nested': './src/pages/index.client.tsx'
   })(nextConfig)
 );

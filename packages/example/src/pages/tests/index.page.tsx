@@ -10,12 +10,15 @@ export default function Home() {
     <Layout>
       <h1>Tests</h1>
       <div>
-        <p>Image</p>
         <Image />
       </div>
       <div>
-        <p>Nested link</p>
-        <a href="/nested/page">Nested link</a>
+        <p>
+          <a href="/tests/nested">Nested link</a>
+        </p>
+        <p>
+          <a href="/tests/data">Data</a>
+        </p>
       </div>
     </Layout>
   );
