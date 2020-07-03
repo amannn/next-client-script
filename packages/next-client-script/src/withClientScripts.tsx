@@ -12,6 +12,8 @@ import ClientScriptsByPath from './ClientScriptsByPath';
 
 const NEXT_PATH = '/_next';
 const PUBLIC_BASE_PATH = '/static/client/';
+const NEXT_BUILD_PATH = './.next/';
+const NEXT_BUILD_ID_PATH = NEXT_BUILD_PATH + 'BUILD_ID';
 
 function encodePath(scriptPath: string) {
   return scriptPath.replace(/\W/g, '-').replace(/-(js|jsx|ts|tsx)$/, '');
@@ -68,30 +70,26 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
         }
 
         if (dev) {
+          // In development, we can handle the script simply as another entry point
           const originalEntry = config.entry as Function;
           config.entry = () =>
             originalEntry().then((entry: any) => ({
               ...entry,
               ...clientEntries
             }));
-
-          // Overload the Webpack config if it was already overloaded
-          if (typeof (receivedConfig as any).webpack === 'function') {
-            return (receivedConfig as any).webpack(config, options);
-          }
-
-          return config;
         } else {
-          const buildIdPath = path.resolve(process.cwd(), './.next/BUILD_ID');
-          // TODO: create folder if it doesn't exist.
-          // TODO: check what happens when the file already exists
+          // For the production build, we have to trigger a separate build where
+          // only the client entries are compiled. A child compiler didn't work
+          // during initial tests, as nothing was written to the file system.
+
+          const buildIdPath = path.resolve(process.cwd(), NEXT_BUILD_ID_PATH);
           fs.writeFileSync(buildIdPath, buildId);
 
           const clientConfig = {
             ...config,
             entry: clientEntries,
             output: {
-              path: path.resolve(process.cwd(), './.next/')
+              path: path.resolve(process.cwd(), NEXT_BUILD_PATH)
             },
             optimization: {
               ...config.optimization,
@@ -137,10 +135,9 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
                     try {
                       message = JSON.stringify(error);
                     } catch (error) {
-                      // Nothing to do.
+                      message = 'An unknown error happened.';
                     }
                   }
-                  if (!message) message = 'Unknown error happened';
                   return message;
                 })
                 .join('\n\n');
@@ -156,9 +153,14 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
             });
             console.log('\n');
           });
-
-          return config;
         }
+
+        // Overload the Webpack config if it was already overloaded
+        if (typeof (receivedConfig as any).webpack === 'function') {
+          return (receivedConfig as any).webpack(config, options);
+        }
+
+        return config;
       }
     });
   };
