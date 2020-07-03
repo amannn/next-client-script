@@ -1,6 +1,6 @@
 {
   "name": "next-client-script",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Add a separate client entry point to your Next.js pages.",
   "repository": "https://github.com/amannn/next-client-script",
   "author": "Jan Amann <jan@amann.me>",
@@ -8,6 +8,15 @@
   "main": "dist/index.js",
   "module": "dist/next-client-script.esm.js",
   "typings": "dist/index.d.ts",
+  "files": [
+    "ClientScript.*",
+    "ClientScriptsByPath.*",
+    "ClientWidget.*",
+    "initWidgets.*",
+    "package.json",
+    "README.md",
+    "withClientScripts.*"
+  ],
   "engines": {
     "node": ">=10"
   },
@@ -15,7 +24,7 @@
     "dev": "rm -rf ./dist && rollup -c rollup.config.js --watch",
     "build": "rm -rf ./dist && rollup -c rollup.config.js",
     "lint": "eslint \"src/**/*.{ts,tsx}\" && tsc --noEmit",
-    "prepublishOnly": "yarn lint && yarn build && cp dist/* ."
+    "prepublishOnly": "yarn lint && yarn build && cp dist/* . && cp ../../README.md ."
   },
   "dependencies": {
     "mini-css-extract-plugin": "^0.8.0",
