@@ -125,7 +125,23 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
             }
             if (stats.compilation.errors.length > 0) {
               errorMessage = stats.compilation.errors
-                .map((error) => JSON.stringify(error))
+                .map((error) => {
+                  let message;
+                  if (error.message) {
+                    message = error.message;
+                    if (error.stack) {
+                      message += '\n' + error.stack;
+                    }
+                  } else {
+                    try {
+                      message = JSON.stringify(error);
+                    } catch (error) {
+                      // Nothing to do.
+                    }
+                  }
+                  if (!message) message = 'Unknown error happened';
+                  return message;
+                })
                 .join('\n\n');
             }
             if (errorMessage) {
