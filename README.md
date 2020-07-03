@@ -1,6 +1,6 @@
 # next-client-script
 
-> 🚀 Supercharge the performance of your Next.js apps by using a minimal client runtime that avoids full-blown hydration.
+> Supercharge the performance of your Next.js apps by using a minimal client runtime that avoids full-blown hydration. 🚀
 
 ## The problem
 
@@ -8,18 +8,18 @@ By default, Next.js adds the code to your client bundle that is necessary to exe
 
 For content heavy sites this [can cause performance issues](https://developers.google.com/web/updates/2019/02/rendering-on-the-web#rehydration) since the page is unresponsive while the client bundle is being executed.
 
-Recently, an [early version of removing the client side bundle](https://github.com/vercel/next.js/pull/11949) was shipped to Next.js which doesn't suffer from performance problems caused by hydration. However, for a typical website you'll likely need at least a tiny bit of JavaScript on the client side.
+Recently, an [early version of removing the client side bundle](https://github.com/vercel/next.js/pull/11949) was shipped to Next.js which doesn't suffer from performance problems caused by hydration. However, for a typical website you'll likely still need some JavaScript on the client side to deliver a reasonable user experience.
 
 ## This solution
 
-This is a Next.js plugin that is intended to be used in conjunction with disabled runtime JavaScript. You can add client bundles on a per-page basis that only sprinkle a tiny bit of necessary JavaScript over otherwise completely static pages
+This is a Next.js plugin that is intended to be used in conjunction with disabled runtime JavaScript. You can add client bundles on a per-page basis that only sprinkle a tiny bit JavaScript over otherwise completely static pages
 
-Benefits:
+**Benefits:**
 
-- You can keep the React component model for rendering your markup server side.
-- Use the Next.js development experience and build pipeline for optimizing the server response.
-- A client side runtime for components is opt-in.
-- Serializing state for the client is opt-in.
+- Keep the React component model for rendering your markup server side
+- Use the Next.js development experience and build pipeline for optimizing the server response
+- A client side runtime for components is opt-in
+- Serializing data for the client is opt-in
 
 The tradeoff is that you can't use any client-side features of React (state, effects, event handlers, …).
 
@@ -73,11 +73,11 @@ See [the example folder](https://github.com/amannn/next-client-script/blob/maste
 
 To help with a component-oriented approach for client-side code, this library contains convenience APIs that help with passing data to the client and initializing widgets.
 
-Use the `ClientWidget` component to mark an entry point for the client side and to optionally transfer data:
+Use the `ClientWidget` component to mark an entry point for the client side and to optionally transfer data.
 
 ```js
 // Counter.js
-import ClientWidget from 'next-client-script/dist/ClientWidget';
+import ClientWidget from 'next-client-script/ClientWidget';
 import styles from './Counter.module.scss';
 
 export default function Counter({initialCount = 2}) {
@@ -92,7 +92,7 @@ export default function Counter({initialCount = 2}) {
 }
 ```
 
-Now you can add a client bundle sibling to this component that receives the data.
+Now you can add a client part for this component that receives the data and adds interactivity.
 
 ```js
 // Counter.client.js
@@ -124,6 +124,6 @@ initWidgets([Counter]);
 ## Prior art & credits
 
 - [A Netflix Web Performance Case Study](https://medium.com/dev-channel/a-netflix-web-performance-case-study-c0bcde26a9d9) by [Addy Osmani](https://twitter.com/addyosmani)
-- [next-critical](https://github.com/stroeer/next-critical)
+- [next-critical](https://github.com/stroeer/next-critical) by [Lukas Bombach](https://github.com/stroeer/next-critical)
 
 I really hope that React will solve hydration problems in the future with [partial hydration](https://github.com/facebook/react/pull/14717) and [server-side components](https://github.com/facebook/react/tree/master/fixtures/blocks), but I think a tiny bit of vanilla JavaScript on the client side is really hard to beat.
