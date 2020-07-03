@@ -1,14 +1,16 @@
-import React, {ReactNode} from 'react';
+import React, {ReactNode, DetailedHTMLProps, HTMLAttributes} from 'react';
 
-type Props<T> = {
-  className?: string;
+type Props<T> = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+> & {
   data?: T;
   children: ReactNode;
 };
 
-export default function ClientWidget<T>({children, className, data}: Props<T>) {
+export default function ClientWidget<T>({children, data, ...rest}: Props<T>) {
   return (
-    <div className={className}>
+    <div {...rest}>
       {data && (
         <script
           dangerouslySetInnerHTML={{__html: JSON.stringify(data)}}

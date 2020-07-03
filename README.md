@@ -73,7 +73,7 @@ See [the example folder](https://github.com/amannn/next-client-script/blob/maste
 
 To help with a component-oriented approach for client-side code, this library contains convenience APIs that help with passing data to the client and initializing widgets.
 
-Use the `ClientWidget` component to mark an entry point for the client side and to optionally transfer data.
+Use the `ClientWidget` component to mark an entry point for the client side and to optionally pass in some data.
 
 ```js
 // Counter.js
