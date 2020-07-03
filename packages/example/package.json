@@ -1,0 +1,21 @@
+{
+  "name": "example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "rm -rf .next && next build",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" && tsc --noEmit",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "9.4.4",
+    "next-client-script": "^0.0.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "next-images": "1.4.0",
+    "sass": "1.26.9"
+  }
+}

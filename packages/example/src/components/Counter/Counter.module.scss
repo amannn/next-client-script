@@ -1,0 +1,25 @@
+.root {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  margin: 0;
+  font-size: 16px;
+}
+
+.count {
+  display: inline-block;
+  font-weight: bold;
+  min-width: 25px;
+}
+
+.button {
+  margin-left: 20px;
+  background-color: #4572e4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}

@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "react/react-in-jsx-scope": 0,
+    "jsx-a11y/anchor-is-valid": 0
+  },
+  "overrides": [
+    {
+      "files": ["*.client.tsx"],
+      "rules": {
+        "css-modules/no-unused-class": 0
+      }
+    }
+  ]
+}

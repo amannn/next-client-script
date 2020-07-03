@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "lint": "cd packages/next-client-script && yarn lint && cd ../example && yarn lint"
+  },
+  "workspaces": [
+    "packages/example",
+    "packages/next-client-script"
+  ]
+}
