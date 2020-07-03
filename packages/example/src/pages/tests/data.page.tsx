@@ -1,5 +1,4 @@
 import Layout from 'components/Layout';
-import Counter from 'components/Counter';
 
 export const config = {
   unstable_runtimeJS: false

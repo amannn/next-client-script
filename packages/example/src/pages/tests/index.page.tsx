@@ -1,5 +1,5 @@
 import Layout from 'components/Layout';
-import Image from 'components/Image';
+import Image, {CssImage} from 'components/Image';
 
 export const config = {
   unstable_runtimeJS: false
@@ -11,6 +11,7 @@ export default function Home() {
       <h1>Tests</h1>
       <div>
         <Image />
+        <CssImage />
       </div>
       <div>
         <p>
