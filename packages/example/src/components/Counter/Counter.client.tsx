@@ -1,6 +1,4 @@
-import styles from './Counter.module.css';
-
-console.log('Counter client code ran');
+import styles from './Counter.module.scss';
 
 export default function initCounter(rootNode, props) {
   let count = props.initialCount;

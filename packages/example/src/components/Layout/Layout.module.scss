@@ -4,21 +4,6 @@
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.nav {
-  padding: 20px 30px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-}
-
-.link {
-  color: inherit;
-  text-decoration: none;
-
-  & + & {
-    margin-left: 20px;
-  }
-}
-
 .children {
   margin-top: 40px;
 }

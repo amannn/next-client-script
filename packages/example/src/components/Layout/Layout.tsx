@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import {ReactNode} from 'react';
+import Head from 'next/head';
+import Navigation from 'components/Navigation';
 import styles from './Layout.module.scss';
 
 type Props = {
@@ -8,16 +9,15 @@ type Props = {
 
 export default function Layout({children}: Props) {
   return (
-    <div className={styles.root}>
-      <nav className={styles.nav}>
-        <Link href="/">
-          <a className={styles.link}>Home</a>
-        </Link>
-        <Link href="/test">
-          <a className={styles.link}>Test</a>
-        </Link>
-      </nav>
-      <main className={styles.children}>{children}</main>
-    </div>
+    <>
+      <Head>
+        <title>Next.js on steroids</title>
+        <link href="/favicon.ico" rel="icon" />
+      </Head>
+      <div className={styles.root}>
+        <Navigation />
+        <main className={styles.children}>{children}</main>
+      </div>
+    </>
   );
 }
