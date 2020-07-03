@@ -21,6 +21,7 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\" && tsc --noEmit"
   },
   "dependencies": {
+    "mini-css-extract-plugin": "0.8.0",
     "next-transpile-modules": "^3.0.0",
     "webpack": "^4.0.0"
   },
