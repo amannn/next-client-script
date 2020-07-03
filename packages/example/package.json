@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "rm -rf .next && next build",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" && tsc --noEmit",
     "start": "next start"
   },
   "dependencies": {
