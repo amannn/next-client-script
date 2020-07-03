@@ -17,6 +17,7 @@ jobs:
       - run: yarn install --frozen-lockfile
         env:
           CI: true
+      - run: cd packages/next-client-script && yarn build
       - run: yarn lint
         env:
           CI: true
