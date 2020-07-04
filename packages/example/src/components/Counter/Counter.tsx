@@ -1,4 +1,5 @@
 import ClientWidget from 'next-client-script/dist/ClientWidget';
+import Button from 'components/Button';
 import {CounterData} from './Counter.client';
 import styles from './Counter.module.scss';
 
@@ -12,7 +13,7 @@ export default function Counter({initialCount = 2}: Props) {
       <p className={styles.label}>
         Count: <span className={styles.count}>{initialCount}</span>
       </p>
-      <button className={styles.button}>Increment</button>
+      <Button className={styles.button}>Increment</Button>
     </ClientWidget>
   );
 }

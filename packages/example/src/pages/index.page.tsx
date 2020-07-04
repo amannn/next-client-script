@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Layout from 'components/Layout';
+import Text from 'components/Text';
 import Counter from '../components/Counter';
 
 export const config = {
@@ -9,7 +9,13 @@ export const config = {
 export default function Home() {
   return (
     <Layout>
-      <h1>Next.js on steroids</h1>
+      <Text as="h1" variant="title">
+        Next.js on steroids
+      </Text>
+      <Text>
+        This app uses a minimal runtime for making this counter interactive and
+        avoids full-blown hydration.
+      </Text>
       <Counter />
     </Layout>
   );

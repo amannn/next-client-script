@@ -1,5 +1,6 @@
 import Layout from 'components/Layout';
 import Image, {CssImage} from 'components/Image';
+import Text from 'components/Text';
 
 export const config = {
   unstable_runtimeJS: false
@@ -8,18 +9,20 @@ export const config = {
 export default function Home() {
   return (
     <Layout>
-      <h1>Tests</h1>
+      <Text as="h1" variant="title">
+        Tests
+      </Text>
       <div>
         <Image />
         <CssImage />
       </div>
       <div>
-        <p>
+        <Text>
           <a href="/tests/nested">Nested link</a>
-        </p>
-        <p>
+        </Text>
+        <Text>
           <a href="/tests/data">Data</a>
-        </p>
+        </Text>
       </div>
     </Layout>
   );

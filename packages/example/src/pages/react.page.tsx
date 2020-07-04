@@ -1,11 +1,13 @@
-import Head from 'next/head';
 import Layout from 'components/Layout';
 import ReactComponent from 'components/ReactComponent';
+import Text from 'components/Text';
 
 export default function Home() {
   return (
     <Layout>
-      <h1>React on the client side</h1>
+      <Text as="h1" variant="title">
+        React on the client side
+      </Text>
       <ReactComponent />
     </Layout>
   );
