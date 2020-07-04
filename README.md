@@ -30,7 +30,7 @@ The tradeoff is that you can't use any client-side features of React (state, eff
 1. Add a client script for a page.
 
 ```js
-// ./src.client.ts
+// ./src/client/index.ts
 console.log('Hello from client.');
 ```
 
@@ -41,7 +41,7 @@ const withClientScripts = require('next-client-script/withClientScripts');
 
 // Define which paths will cause which scripts to load
 module.exports = withClientScripts({
-  '/': './src/client.ts'
+  '/': './src/client/index.ts'
 })();
 ```
 
