@@ -1,6 +1,6 @@
 {
   "name": "next-client-script",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Add a separate client entry point to your Next.js pages.",
   "repository": "https://github.com/amannn/next-client-script",
   "author": "Jan Amann <jan@amann.me>",
@@ -10,7 +10,8 @@
     "ClientScriptsByPath.*",
     "ClientWidget.*",
     "initWidgets.*",
-    "withClientScripts.*"
+    "withClientScripts.*",
+    "tslib.*"
   ],
   "engines": {
     "node": ">=10"
