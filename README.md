@@ -23,6 +23,8 @@ This is a Next.js plugin that is intended to be used in conjunction with disable
 
 The tradeoff is that you can't use any client-side features of React (state, effects, event handlers, …). Note that since this is an external plugin, some features of Next.js might not be available (yet) – e.g. code splitting.
 
+→ [Demo deployment](https://next-client-script.vercel.app/)
+
 ## Getting started
 
 ### Minimum setup
