@@ -12,7 +12,7 @@ Recently, an [early version of removing the client side bundle](https://github.c
 
 ## This solution
 
-This is a Next.js plugin that is intended to be used in conjunction with disabled runtime JavaScript. You can add client bundles on a per-page basis that only sprinkle a tiny bit JavaScript over otherwise completely static pages
+This is a Next.js plugin that is intended to be used in conjunction with disabled runtime JavaScript. You can add client bundles on a per-page basis that only sprinkle a tiny bit JavaScript over otherwise completely static pages.
 
 **Benefits:**
 
@@ -21,7 +21,7 @@ This is a Next.js plugin that is intended to be used in conjunction with disable
 - A client side runtime for components is opt-in
 - Serializing data for the client is opt-in
 
-The tradeoff is that you can't use any client-side features of React (state, effects, event handlers, …). Note that since this is an external plugin, some features of Next.js might not be available (yet) – e.g. code splitting.
+The tradeoff is that you can't use any client-side features of React (state, effects, event handlers, …). Note that some features of Next.js might not be available (yet) – e.g. code splitting via `dynamic` within a page.
 
 → [Demo deployment](https://next-client-script.vercel.app/)
 
@@ -98,6 +98,8 @@ Now you can add a client part for this component that receives the data and adds
 
 ```js
 // Counter.client.js
+import styles from './Counter.module.scss';
+
 export default function initCounter(rootNode, data) {
   let count = data.initialCount;
 
