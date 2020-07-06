@@ -1,3 +1,4 @@
+import {GetServerSidePropsResult} from 'next';
 import Layout from 'components/Layout';
 import Text from 'components/Text';
 
@@ -5,7 +6,11 @@ export const config = {
   unstable_runtimeJS: false
 };
 
-export function getServerSideProps() {
+type Props = {
+  time: number;
+};
+
+export function getServerSideProps(): GetServerSidePropsResult<Props> {
   return {
     props: {
       time: Date.now()
@@ -13,7 +18,7 @@ export function getServerSideProps() {
   };
 }
 
-export default function Home({time}) {
+export default function Data({time}: Props) {
   return (
     <Layout>
       <Text as="h1" variant="title">

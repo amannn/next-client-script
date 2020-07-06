@@ -4,7 +4,7 @@ export type CounterData = {
   initialCount: number;
 };
 
-export default function initCounter(rootNode, data: CounterData) {
+export default function initCounter(rootNode: HTMLElement, data: CounterData) {
   let count = data.initialCount;
 
   const countNode = rootNode.querySelector(`.${styles.count}`);
@@ -12,8 +12,12 @@ export default function initCounter(rootNode, data: CounterData) {
 
   buttonNode.addEventListener('click', () => {
     count++;
-    countNode.textContent = count;
+    render();
   });
+
+  function render() {
+    countNode.textContent = String(count);
+  }
 }
 
 initCounter.selector = `.${styles.root}`;
