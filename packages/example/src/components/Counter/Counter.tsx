@@ -8,8 +8,10 @@ type Props = {
 };
 
 export default function Counter({initialCount = 2}: Props) {
+  const data: CounterData = {initialCount};
+
   return (
-    <ClientWidget<CounterData> className={styles.root} data={{initialCount}}>
+    <ClientWidget className={styles.root} data={data}>
       <p className={styles.label}>
         Count: <span className={styles.count}>{initialCount}</span>
       </p>

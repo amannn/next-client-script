@@ -3,7 +3,7 @@ interface Widget {
   selector: string;
 }
 
-export default function initWidgets(widgets: Widget[]) {
+export default function initWidgets(widgets: Array<Widget>) {
   function runInitialization() {
     widgets.forEach((widget) => {
       const nodes = document.querySelectorAll(widget.selector);

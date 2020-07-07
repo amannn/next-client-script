@@ -1,8 +1,8 @@
-import {GetServerSidePropsResult} from 'next';
+import {GetServerSidePropsResult, PageConfig} from 'next';
 import Layout from 'components/Layout';
 import Text from 'components/Text';
 
-export const config = {
+export const config: PageConfig = {
   unstable_runtimeJS: false
 };
 

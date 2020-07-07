@@ -1,8 +1,9 @@
+import {PageConfig} from 'next';
 import Layout from 'components/Layout';
 import Image, {CssImage} from 'components/Image';
 import Text from 'components/Text';
 
-export const config = {
+export const config: PageConfig = {
   unstable_runtimeJS: false
 };
 
