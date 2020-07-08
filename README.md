@@ -14,6 +14,8 @@ Recently, an [early version of removing the client side bundle](https://github.c
 
 This is a Next.js plugin that is intended to be used in conjunction with disabled runtime JavaScript. You can add client bundles on a per-page basis that only sprinkle a tiny bit JavaScript over otherwise completely static pages.
 
+This allows for the same [architecture that Netflix has chosen for their public pages](https://medium.com/dev-channel/a-netflix-web-performance-case-study-c0bcde26a9d9).
+
 **Benefits:**
 
 - Keep the React component model for rendering your markup server side
@@ -23,7 +25,7 @@ This is a Next.js plugin that is intended to be used in conjunction with disable
 
 The tradeoff is that you can't use any client-side features of React (state, effects, event handlers, …). Note that some features of Next.js might not be available (yet) – e.g. code splitting via `dynamic` within a page.
 
-→ [Demo deployment](https://next-client-script.vercel.app/)
+→ [Demo deployment](https://next-client-script.vercel.app/) ([source](https://github.com/amannn/next-client-script/tree/master/packages/example))
 
 ## Getting started
 
