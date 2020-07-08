@@ -65,7 +65,7 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
 
         if (dev) {
           // In development, we can handle the script simply as another entry point
-          const originalEntry = config.entry as Function;
+          const originalEntry = config.entry as any;
           config.entry = () =>
             originalEntry().then((entry: any) => ({
               ...entry,
@@ -86,7 +86,7 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
               ...config.optimization,
               // Output only a single JavaScript asset that
               // contains all necessary client code.
-              runtimeChunk: undefined
+              runtimeChunk: undefined as undefined
             },
             plugins: (config.plugins || []).filter(
               (plugin: any) =>
@@ -99,23 +99,23 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
           };
 
           const compiler: Compiler = nextWebpack(clientConfig);
-          compiler.run((error, stats) => {
+          compiler.run((compilerError, stats) => {
             let errorMessage;
-            if (error) {
-              errorMessage = error.message;
+            if (compilerError) {
+              errorMessage = compilerError.message;
             }
             if (stats.compilation.errors.length > 0) {
               errorMessage = stats.compilation.errors
-                .map((error) => {
+                .map((compilationError) => {
                   let message;
-                  if (error.message) {
-                    message = error.message;
-                    if (error.stack) {
-                      message += '\n' + error.stack;
+                  if (compilationError.message) {
+                    message = compilationError.message;
+                    if (compilationError.stack) {
+                      message += '\n' + compilationError.stack;
                     }
                   } else {
                     try {
-                      message = JSON.stringify(error);
+                      message = JSON.stringify(compilationError);
                     } catch (error) {
                       message = 'An unknown error happened.';
                     }
@@ -131,8 +131,8 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
 
             /* eslint-disable no-console */
             console.log(chalk.green('\nCreated client scripts'));
-            Object.entries(scriptsByPath).forEach(([path, script]) => {
-              console.log(`${path}: ${script}`);
+            Object.entries(scriptsByPath).forEach(([scriptPath, script]) => {
+              console.log(`${scriptPath}: ${script}`);
             });
             console.log('\n');
             /* eslint-enable no-console */

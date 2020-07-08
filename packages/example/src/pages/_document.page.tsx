@@ -2,7 +2,7 @@ import Document, {Html, Head, Main, NextScript} from 'next/document';
 import ClientScript from 'next-client-script/dist/ClientScript';
 
 export default class CustomDocument extends Document {
-  render() {
+  public render() {
     return (
       <Html>
         <Head />

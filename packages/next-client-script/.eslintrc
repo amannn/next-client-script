@@ -1,0 +1,9 @@
+{
+  "extends": ["molindo/react", "molindo/typescript"],
+  "env": {
+    "node": true
+  },
+  "globals": {
+    "CLIENT_SCRIPTS_BY_PATH": false
+  }
+}
