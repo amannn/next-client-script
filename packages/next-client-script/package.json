@@ -40,7 +40,7 @@
     "@types/react-dom": "16.9.8",
     "@types/webpack": "4.41.18",
     "@typescript-eslint/eslint-plugin": "3.6.0",
-    "eslint-config-molindo": "5.0.0-alpha.1",
+    "eslint-config-molindo": "5.0.0-alpha.2",
     "eslint-plugin-css-modules": "2.11.0",
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-jsx-a11y": "6.3.1",

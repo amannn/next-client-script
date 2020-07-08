@@ -3,20 +3,7 @@ const withImages = require('next-images');
 const withClientScripts = require('next-client-script/dist/withClientScripts');
 
 const nextConfig = {
-  pageExtensions: ['page.tsx'],
-  headers() {
-    return [
-      {
-        source: '/',
-        headers: [
-          {
-            key: 'cache-control',
-            value: 'cache-control: public,max-age=60'
-          }
-        ]
-      }
-    ];
-  }
+  pageExtensions: ['page.tsx']
 };
 
 module.exports = withImages(
