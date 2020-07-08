@@ -2,6 +2,7 @@ import {PageConfig} from 'next';
 import Layout from 'components/Layout';
 import Image, {CssImage} from 'components/Image';
 import Text from 'components/Text';
+import Toggler from 'components/Toggler';
 
 export const config: PageConfig = {
   unstable_runtimeJS: false
@@ -16,6 +17,9 @@ export default function Home() {
       <div>
         <Image />
         <CssImage />
+      </div>
+      <div style={{marginTop: 10}}>
+        <Toggler />
       </div>
       <div>
         <Text>

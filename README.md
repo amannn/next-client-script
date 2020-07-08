@@ -12,7 +12,7 @@ Recently, an [early version of removing the client side bundle](https://github.c
 
 ## This solution
 
-This is a Next.js plugin that is intended to be used in conjunction with disabled runtime JavaScript. You can add client bundles on a per-page basis that only sprinkle a tiny bit JavaScript over otherwise completely static pages.
+This is a Next.js plugin that is intended to be used in conjunction with disabled runtime JavaScript. You can add client bundles on a per-page basis that only sprinkle a tiny bit of JavaScript over otherwise completely static pages.
 
 This allows for the same [architecture that Netflix has chosen for their public pages](https://medium.com/dev-channel/a-netflix-web-performance-case-study-c0bcde26a9d9).
 

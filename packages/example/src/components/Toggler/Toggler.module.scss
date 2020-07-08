@@ -1,0 +1,12 @@
+.root {
+  background: #eee;
+  padding: 10px;
+
+  &_toggled {
+    background: #ddd;
+  }
+}
+
+.button {
+  display: block;
+}
