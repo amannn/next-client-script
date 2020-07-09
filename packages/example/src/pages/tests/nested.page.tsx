@@ -1,6 +1,6 @@
 import {PageConfig} from 'next';
-import Layout from 'components/Layout';
 import Counter from 'components/Counter';
+import Layout from 'components/Layout';
 import Text from 'components/Text';
 
 export const config: PageConfig = {

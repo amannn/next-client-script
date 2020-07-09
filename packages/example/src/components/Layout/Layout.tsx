@@ -1,5 +1,5 @@
-import {ReactNode} from 'react';
 import Head from 'next/head';
+import {ReactNode} from 'react';
 import Navigation from 'components/Navigation';
 import styles from './Layout.module.scss';
 

@@ -1,7 +1,7 @@
 import {PageConfig} from 'next';
+import Counter from 'components/Counter';
 import Layout from 'components/Layout';
 import Text from 'components/Text';
-import Counter from '../components/Counter';
 
 export const config: PageConfig = {
   unstable_runtimeJS: false

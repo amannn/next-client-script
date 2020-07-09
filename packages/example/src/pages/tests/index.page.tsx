@@ -1,6 +1,6 @@
 import {PageConfig} from 'next';
-import Layout from 'components/Layout';
 import Image, {CssImage} from 'components/Image';
+import Layout from 'components/Layout';
 import Text from 'components/Text';
 import Toggler from 'components/Toggler';
 
