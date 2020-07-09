@@ -1,5 +1,5 @@
-import React, {useContext, ScriptHTMLAttributes} from 'react';
 import {DocumentContext} from 'next/dist/next-server/lib/document-context';
+import React, {useContext, ScriptHTMLAttributes} from 'react';
 import ClientScriptsByPath from './ClientScriptsByPath';
 
 declare const CLIENT_SCRIPTS_BY_PATH: ClientScriptsByPath;

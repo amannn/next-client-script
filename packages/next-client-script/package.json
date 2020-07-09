@@ -39,7 +39,8 @@
     "@types/react": "16.9.41",
     "@types/react-dom": "16.9.8",
     "@types/webpack": "4.41.18",
-    "eslint-config-molindo": "5.0.0-alpha.5",
+    "eslint": "7.4.0",
+    "eslint-config-molindo": "5.0.0-alpha.10",
     "rollup": "2.18.2",
     "tslib": "2.0.0",
     "typescript": "3.9.6"

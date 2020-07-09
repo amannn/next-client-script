@@ -8,5 +8,11 @@ export default function Button({
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 >) {
-  return <button className={[className, styles.button].join(' ')} {...rest} />;
+  return (
+    <button
+      className={[className, styles.button].join(' ')}
+      type="button"
+      {...rest}
+    />
+  );
 }

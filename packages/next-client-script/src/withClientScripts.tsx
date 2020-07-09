@@ -1,7 +1,7 @@
 import path from 'path';
 import chalk from 'chalk';
-import webpack, {Compiler} from 'webpack';
 import withTM from 'next-transpile-modules';
+import webpack, {Compiler} from 'webpack';
 import ClientScriptsByPath from './ClientScriptsByPath';
 
 const NEXT_PATH = '/_next';
