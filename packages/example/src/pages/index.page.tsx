@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <Layout>
       <Text as="h1" variant="title">
-        Next.js on steroids
+        next-client-script
       </Text>
       <Text>
-        This app uses a minimal runtime to make this counter interactive and
-        avoids full-blown hydration.
+        This Next.js app uses a minimal runtime to make this counter interactive
+        and avoids full-blown hydration.
       </Text>
       <Counter />
     </Layout>
