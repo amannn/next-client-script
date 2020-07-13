@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+import pkg from './package.json';
 
 export default {
   input: [
@@ -15,12 +16,7 @@ export default {
     sourcemap: true
   },
   plugins: [typescript(), commonjs()],
-  external: [
-    'path',
-    'chalk',
-    'mini-css-extract-plugin',
-    'react',
-    'next/dist/next-server/lib/document-context',
-    'next-transpile-modules'
-  ]
+  external: Object.keys(pkg.dependencies)
+    .concat(Object.keys(pkg.peerDependencies))
+    .concat('next/dist/next-server/lib/document-context', 'path')
 };

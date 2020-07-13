@@ -1,6 +1,6 @@
 {
   "name": "next-client-script",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Add a separate client entry point to your Next.js pages.",
   "repository": "https://github.com/amannn/next-client-script",
   "author": "Jan Amann <jan@amann.me>",
@@ -25,6 +25,7 @@
   "dependencies": {
     "chalk": "^4.0.0",
     "next-transpile-modules": "^3.0.0",
+    "path-to-regexp": "6.1.0",
     "webpack": "^4.0.0"
   },
   "peerDependencies": {

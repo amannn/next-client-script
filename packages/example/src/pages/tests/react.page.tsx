@@ -2,7 +2,7 @@ import Layout from 'components/Layout';
 import ReactComponent from 'components/ReactComponent';
 import Text from 'components/Text';
 
-export default function Home() {
+export default function ReactPage() {
   return (
     <Layout>
       <Text as="h1" variant="title">
