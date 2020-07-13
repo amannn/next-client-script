@@ -45,7 +45,9 @@ const withClientScripts = require('next-client-script/withClientScripts');
 
 // Define which paths will cause which scripts to load
 module.exports = withClientScripts({
-  '/': './src/client/index.ts'
+  '/': './src/client/index.ts',
+  // You can use parameters as provided by path-to-regexp to match routes dynamically.
+  '/products/:id': './src/client/product.ts'
 })();
 ```
 

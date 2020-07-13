@@ -25,6 +25,7 @@
   "dependencies": {
     "chalk": "^4.0.0",
     "next-transpile-modules": "^3.0.0",
+    "path-to-regexp": "6.1.0",
     "webpack": "^4.0.0"
   },
   "peerDependencies": {

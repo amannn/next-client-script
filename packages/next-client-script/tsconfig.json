@@ -1,6 +1,6 @@
 {
   "extends": "eslint-config-molindo/tsconfig.json",
-  "include": ["src", "types"],
+  "include": ["."],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],

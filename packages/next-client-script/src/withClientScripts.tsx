@@ -35,9 +35,7 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
         // By using this folder, we get immutable caching headers
         const PUBLIC_BASE_PATH = `/static/${buildId}/client/`;
 
-        const clientEntries: {
-          [path: string]: string;
-        } = {};
+        const clientEntries: {[path: string]: string} = {};
         const clientScriptsByPath: ClientScriptsByPath = {};
         Object.entries(scriptsByPath).forEach(([pagePath, scriptPath]) => {
           let publicPath = PUBLIC_BASE_PATH + encodePath(scriptPath);
@@ -130,7 +128,7 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
             }
 
             /* eslint-disable no-console */
-            console.log(chalk.green('\nCreated client scripts'));
+            console.log(chalk.green('\nCreated client scripts:'));
             Object.entries(scriptsByPath).forEach(([scriptPath, script]) => {
               console.log(`${scriptPath}: ${script}`);
             });

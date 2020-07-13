@@ -11,9 +11,6 @@ export default function Navigation() {
       <a className={styles.link} href="/tests">
         Tests
       </a>
-      <a className={styles.link} href="/react">
-        React
-      </a>
     </nav>
   );
 }

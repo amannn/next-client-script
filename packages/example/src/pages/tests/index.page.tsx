@@ -28,6 +28,12 @@ export default function Tests() {
         <Text>
           <a href="/tests/data">Data</a>
         </Text>
+        <Text>
+          <a href="/tests/react">React with hydration</a>
+        </Text>
+        <Text>
+          <a href="/dynamic/5">Dynamic route</a>
+        </Text>
       </div>
     </Layout>
   );
