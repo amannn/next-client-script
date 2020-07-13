@@ -1,10 +1,8 @@
 import {
   PageConfig,
-  GetServerSideProps,
   GetServerSidePropsContext,
   GetServerSidePropsResult
 } from 'next';
-import {useRouter} from 'next/router';
 import Counter from 'components/Counter';
 import Layout from 'components/Layout';
 import Text from 'components/Text';
