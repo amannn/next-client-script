@@ -1,6 +1,6 @@
 /* eslint-disable css-modules/no-unused-class */
-import Button from 'components/Button';
 import ClientWidget from 'next-client-script/dist/ClientWidget';
+import Button from 'components/Button';
 import styles from './Toggler.module.scss';
 
 // This example tests that the whole stylesheet is loaded and individual
