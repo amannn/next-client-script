@@ -18,16 +18,11 @@ type Props = {
 export function getServerSideProps(
   context: GetServerSidePropsContext
 ): GetServerSidePropsResult<Props> {
-  let initialCount;
-  if (typeof context.params?.initialCount === 'string') {
-    initialCount = parseInt(context.params.initialCount);
+  if (typeof context.params?.initialCount !== 'string') {
+    throw new Error(`Invalid initialCount: ${context.params?.initialCount}`);
   }
 
-  if (initialCount == null) {
-    throw new Error('Please provide an `initialCount`.');
-  }
-
-  return {props: {initialCount}};
+  return {props: {initialCount: parseInt(context.params.initialCount)}};
 }
 
 export default function Dynamic({initialCount}: Props) {
