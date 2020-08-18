@@ -10,7 +10,7 @@
     "deploy": "vercel"
   },
   "dependencies": {
-    "next": "9.4.4",
+    "next": "9.5.2",
     "next-client-script": "*",
     "react": "16.13.1",
     "react-dom": "16.13.1"

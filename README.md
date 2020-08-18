@@ -27,6 +27,18 @@ The tradeoff is that you can't use any client-side features of React (state, eff
 
 → [Demo deployment](https://next-client-script.vercel.app/) ([source](https://github.com/amannn/next-client-script/tree/master/packages/example))
 
+
+## Compatibility
+
+⚠️ **Important:** To achieve the desired effect, this plugin modifies the webpack configuration that Next.js consumes. Similar as with other Next.js plugins, it's possible that this plugin will break when there are updates to Next.js. I'm keeping the plugin updated so that it continues to work with new versions of Next.js.
+
+| Next.js version  | Plugin version |
+| ------------- | ------------- |
+| ^9.5.0 | 0.1.0 |
+| ^9.4.0 | 0.0.6 |
+
+Latest version tested: 9.5.2
+
 ## Getting started
 
 ### Minimum setup
