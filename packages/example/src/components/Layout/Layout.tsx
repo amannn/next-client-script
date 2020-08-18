@@ -11,7 +11,7 @@ export default function Layout({children}: Props) {
   return (
     <>
       <Head>
-        <title>Next.js on steroids</title>
+        <title>next-client-script</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <div className={styles.root}>

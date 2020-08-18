@@ -33,19 +33,27 @@ module.exports = function withHydrationInitializer(scriptsByPath: {
         const {buildId, dev, isServer, webpack: nextWebpack} = options;
 
         // By using this folder, we get immutable caching headers
-        const PUBLIC_BASE_PATH = `/static/${buildId}/client/`;
+        const PUBLIC_BASE_PATH = `/static/chunks/`;
 
         const clientEntries: {[path: string]: string} = {};
         const clientScriptsByPath: ClientScriptsByPath = {};
         Object.entries(scriptsByPath).forEach(([pagePath, scriptPath]) => {
-          let publicPath = PUBLIC_BASE_PATH + encodePath(scriptPath);
-          if (dev) publicPath += '.js';
+          const encodedScriptPath = encodePath(scriptPath);
 
+          // Compute `clientEntries`
+          let entryName, scriptName;
+          if (dev) {
+            scriptName = entryName = encodedScriptPath;
+          } else {
+            // TODO: Can we utilize contenthash?
+            scriptName = buildId + '-' + encodedScriptPath;
+            entryName = PUBLIC_BASE_PATH.substring(1) + scriptName;
+          }
+          clientEntries[entryName] = scriptPath;
+
+          // Compute `clientScriptsByPath`
+          const publicPath = PUBLIC_BASE_PATH + scriptName + '.js';
           clientScriptsByPath[pagePath] = NEXT_PATH + publicPath;
-          if (!dev) clientScriptsByPath[pagePath] += '.js';
-
-          const entryPointName = publicPath.substring(1);
-          clientEntries[entryPointName] = scriptPath;
         });
 
         config = {

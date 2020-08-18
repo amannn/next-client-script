@@ -20,7 +20,7 @@ export default function ClientScript({
   const context = useContext(DocumentContext);
 
   // Query params and hashes are already removed from this path.
-  const pagePath = context._documentProps.__NEXT_DATA__.page;
+  const pagePath = context.__NEXT_DATA__.page;
 
   const match = clientScriptsByPathRegex.find((cur) =>
     cur.pathRegex.test(pagePath)
