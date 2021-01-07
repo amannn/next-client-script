@@ -37,7 +37,7 @@ The tradeoff is that you can't use any client-side features of React (state, eff
 | ^10.0.0, ^9.5.0 | 0.1.0 |
 | ~9.4.0 | 0.0.6 |
 
-Latest version tested: 9.5.2
+Latest version tested: 10.0.5
 
 ## Getting started
 
