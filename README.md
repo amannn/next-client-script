@@ -1,3 +1,7 @@
+# Deprecated, check out [React Server Components](https://beta.nextjs.org/docs/rendering/server-and-client-components#server-components) instead!
+
+<hr />
+
 # next-client-script
 
 > Supercharge the performance of your Next.js apps by using a minimal client runtime that avoids full-blown hydration. 🚀
