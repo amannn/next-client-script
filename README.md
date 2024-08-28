@@ -1,6 +1,5 @@
-# Deprecated, check out [React Server Components](https://beta.nextjs.org/docs/rendering/server-and-client-components#server-components) instead!
-
-<hr />
+> [!WARNING]  
+> This project is in maintainence mode now, check out [React Server Components](https://beta.nextjs.org/docs/rendering/server-and-client-components#server-components) instead!
 
 # next-client-script
 
